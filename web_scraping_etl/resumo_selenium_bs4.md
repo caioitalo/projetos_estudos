@@ -108,26 +108,28 @@ Para checar quais as possibilidades de teclas possíveis checar esse [link](http
 
 O HTML é feito por elementos que muitas vezes se repetem como listas (li, ul), links (a href), divisões (div), etc.
 Há duas formas principais de iterar sobre esses elementos.
-    - Utilizando for.
-    A própria documentação diz que não é o método mais eficiente de se utilizar.
-    ```
-    all_options = element.find_elements(By.TAG_NAME, "option")
-    for opcao in all_options:
-        print("Value is: %s" % option.get_attribute("value"))
-        opcao.click()
-    ```
-    
-    - Utilizando o método Select.
-    Não consegui utilizá-lo por acusar erros, não aceitar nenhum localizar no find_elements
-    ```
-    from selenium.webdriver.support.ui import Select
-    select = Select(driver.find_element(By.NAME, 'name'))
-    select.select_by_index(index)
-    select.select_by_visible_text("text")
-    select.select_by_value(value)
+- Utilizando for.
 
-    opcoes = select.options
-    ```
+A própria documentação diz que não é o método mais eficiente de se utilizar.
+ 
+```
+all_options = element.find_elements(By.TAG_NAME, "option")
+for opcao in all_options:
+   print("Value is: %s" % option.get_attribute("value"))
+   opcao.click()
+```
+    
+- Utilizando o método Select.
+- 
+Não consegui utilizá-lo por acusar erros, não aceitar nenhum localizar no find_elements
+```
+from selenium.webdriver.support.ui import Select
+select = Select(driver.find_element(By.NAME, 'name'))
+select.select_by_index(index)
+select.select_by_visible_text("text")
+select.select_by_value(value)
+opcoes = select.options
+```
 
 **6. Clique em elementos**
 
@@ -156,7 +158,6 @@ _Waits explícitos_
 Explicita qual elemento e pelo que se espera.
 An explicit wait is a code you define to wait for a certain condition to occur before proceeding further in the code
 
-    ```
     from selenium.webdriver.support.wait import WebDriverWait
     from selenium.webdriver.support import expected_conditions as EC
 
@@ -168,8 +169,7 @@ An explicit wait is a code you define to wait for a certain condition to occur b
         )
     finally:
         driver.quit()
-    ```
-
+    
 Pode-se utilizar waits explícitos com essas formas
 - title_is
 - title_contains
@@ -191,12 +191,11 @@ Pode-se utilizar waits explícitos com essas formas
 
 _Waits implícitos_
 Não define elemento, apenas diz quanto tempo se espera antes de acessar algum elemento
-
-    ```
+ 
     driver.implicitly_wait(10) # seconds
     driver.get("http://somedomain/url_that_delays_loading")
     myDynamicElement = driver.find_element_by_id("myDynamicElement")
-    ```
+    
 
 
 ## Beautiful Soup 4
