@@ -1,5 +1,5 @@
-# Resumos dos estudos da biblioteca Selenium e Beatiful Soup 4
-Baseado nas documentações das bibliotecas
+# Resumos dos estudos da biblioteca Selenium
+Baseado nas documentações da biblioteca, stackoverflow e vídeos na internet
 
 ## Selenium
 Biblioteca que permite e suporta a automação de navegadores.
@@ -195,7 +195,4 @@ Não define elemento, apenas diz quanto tempo se espera antes de acessar algum e
     driver.implicitly_wait(10) # seconds
     driver.get("http://somedomain/url_that_delays_loading")
     myDynamicElement = driver.find_element_by_id("myDynamicElement")
-    
-
-
-## Beautiful Soup 4
+ 
