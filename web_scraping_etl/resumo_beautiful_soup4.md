@@ -92,14 +92,30 @@ css_soup.p['class']
 ```
 Caso não deseje que os atributos sejam fornecidos como lista, coloque o argumento ```multi_valued_attributes=None``` no construtor BeautifulSoup()
 
-**OBS1:** Em arquivos XML nenhum elemento terá vários valores de atributos.
-
-3. **soup.elemento.string**
-
-Acessa o texto que há no elemento
+**OBS1:** Em arquivos XML nenhum elemento terá vários valores de atributos. Para isso olhe o exemplo abaixo:
+```
+xml_soup = BeautifulSoup('<p class="body strikeout"></p>', 'xml', multi_valued_attributes=class_is_multi) 
+# aqui vale o teste se sempre é class, ou tem que colocar o atributo que se deseja
+xml_soup.p['class']
+# [u'body', u'strikeout']
+```
+3. **Acesso ao texto contido em um elemento**
 ```
 soup.title.string
 # u'The Dormouse's story'
+```
+Pode-se trocar a string utilizando o método abaixo:
+```
+soup.p.string.replace_with("No longer bold")
+# <blockquote>No longer bold</blockquote>
+```
+OBS da doc: Se você quer utilizar uma NavigableString (classe de string da BS) fora do Beautiful Soup, você deve chamar o unicode() para transformá-la em uma string Unicode Python padrão. 
+Se você não fizer isso, sua string irá carregar uma referência de toda sua árvore Beautiful Soup, mesmo que você já não esteja mais usando ela, o que é um grande desperdício de memória.
+
+Caso a tag tenha mais de uma string utilize stripped_strings que já desconsidera os eventuais espaços que possam haver entre elas
+```
+for string in soup.stripped_strings:
+    print(repr(string))
 ```
 
 4. **soup.elemento.parent.name**
@@ -118,7 +134,7 @@ No HTML muitas vezes há vários elementos do mesmo tipo, faz-se necessário uti
 soup.find_all('a')
 ```
 
-6. **soup_find(tag)
+6. **soup_find(tag)**
 
 Pode-se usar o método find para procurar pelo tag_name, id, class, div. Há várias possibilidades de formas de procura. 
 
@@ -139,3 +155,45 @@ for link in soup.find_all('a'):
 # http://example.com/tillie
 ```
 OBS: o método get('href') pega o link que há dentro do elemento a. Muito importante
+
+2. **Navegando pela árvore**
+
+As tags podem conter strings e outras tags. Estes elementos são as tags filhas (children).
+
+2.1 Acessando todas as tags filhas
+```
+soup.head.contents
+```
+
+Com auxílio de lista é possível acessar a uma tag específica
+```
+soup.p.contents[2].name
+```
+
+Caso deseje iterar sobre as children, use um for
+```
+for filho in title_tag.filhos:
+     print(filho)
+```
+
+OBS: strings não possuem o atributo .contents pois não contêm nada.
+
+2.1.1 Acessando todas as tags abaixo
+O método children e contents, somente mostra as tags filhas diretas. Exemplo: a tag head só tem como filha direta a tag title, porém essa tem várias outras abaixo.
+O atributo .descendants permite que você itere sobre todas as tags filhas, recursivamente: suas filhas diretas, as filhas de suas filhas, e assim por diante:
+```
+for child in head_tag.descendants:
+    print(child)
+# <title>The Dormouse's story</title>
+# The Dormouse's story
+
+
+```
+
+2.2 Acessando as tags acima
+A ideia é igual. Porém agora você está subindo as tags.
+Você pode acessar o elemento mãe com o atributo ```.parent```.
+Para acessar todos elementos acima na árvore use ```.parents```.
+
+2.3 Acessando elementos de uma mesma tag (irmãos)
+Você pode usar ```.next_sibling``` e ```.previous_sibling``` para navegar entre os elementos da página que estão no mesmo nível da árvore:
