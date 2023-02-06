@@ -1,14 +1,14 @@
 # **RESUMO DOS ESTUDOS EM BEAUTIFUL SOUP(BS)**
 Informações obtidas a partir de documentação e stackoverflow.
 
-## INTRODUÇÃO
+## 1 - INTRODUÇÃO
 Segundo a própria documentação:
 > Beautiful Soup é uma biblioteca Python de extração de dados de arquivos HTML e XML. 
 > Utiliza vários parsers (interpretadores) que provêm maneiras mais intuitivas de navegar, buscar e modificar uma árvore (parse tree).
 
 Importante salientar que a BS não transita entre páginas, por isso faz-se necessário a utilização do Selenium.
 
-## INSTALAÇÃO E IMPORTAÇÃO
+## 2 - INSTALAÇÃO E IMPORTAÇÃO
 ```
 pip install beautifulsoup4
 from bs4 import BeautifulSoup
@@ -17,18 +17,32 @@ import requests
 OBS: importante importar a biblioteca requests, pois ela que faz o acesso ao arquivo html de alguma página. 
 Também é possível que se use o método get() do Selenium para indicar a página para a BS.
 
-## QUAL PARSER DEVO ESCOLHER?
-https://www.crummy.com/software/BeautifulSoup/bs4/doc.ptbr/#instalando-um-interpretador-parser 
-continuar daqui
+### 2.1 QUAL PARSER DEVO ESCOLHER?
+O Beautiful Soup não só suporta o parser HTML incluído na biblioteca padrão do Python como também inúmeros parsers de terceiros.
 
-## CRIAÇÃO DA SOUP 
+|Parser|Uso Padrão|Vantagens|Desvantagens|
+|---|---|---|---|
+|html.parser (puro)	|```BeautifulSoup(pag_html, "html.parser")```|- Velocidade Decente <br/> - Leniente (Suave?)|- Não tão rápido quanto lxml <br/> - Menos leniente que html5lib|
+|HTML (lxml)|```BeautifulSoup(pag_html, "lxml")``` |- Muito rápido <br/> - Leniente|- Dependência externa de C|
+|XML (lxml)|```BeautifulSoup(pag_html, "lxml-xml")```<br/> ```BeautifulSoup(pag_html, "xml")```|- Muito rápido <br/> - O único parser de XML suportado|- Dependência externa de C|
+|html5lib|```BeautifulSoup(pag_html, "html5lib")```|- Muito leniente <br/> - Analisa as páginas como um navegador|- Muito Lento <br/> - Dependência externa de Python|
+
+**OBS1:** Instalação dos outros parsers:
+```
+pip install lxml
+pip install html5lib
+```
+**OBS2:** A própria _**documentação indica a utilização do lxml**_ 
+
+## 3 - CRIAÇÃO DA SOUP 
+Para analisar um documento, passe-o como argumento dentro de um construtor BeautifulSoup
 ```
 acesso = requests.get('www.google.com')
 soup = BeautifulSoup(acesso.text, 'html.parser')
 ```
 O .text serve para transformar o arquivo para texto para que o parser funcione.
 
-## COMANDOS BÁSICOS
+## 4 - COMANDOS BÁSICOS
 Utilizando o html abaixo como exemplo:
 ```
 <html><head><title>The Dormouse's story</title></head>
@@ -56,7 +70,7 @@ soup.p
 # <p class="title"><b>The Dormouse's story</b></p>
 ```
 
-2. **soup.elemento.name**
+2. **Acesso ao nome e atributos de um elemento**
 
 Acessa à string do elemento. Ainda não vi muita utilidade nisso.
 ```
@@ -101,7 +115,7 @@ soup.find(id="link3") # poderia utilizar o class='sister' por exemplo
 # <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>
 ```
 
-## COMANDOS MAIS AVANÇADOS
+## 5 - COMANDOS MAIS AVANÇADOS
 1. **Iteração de elementos**
 
 Importante caso se deseje iterar pelos vários elementos de uma paginas, como links, listas, etc.
