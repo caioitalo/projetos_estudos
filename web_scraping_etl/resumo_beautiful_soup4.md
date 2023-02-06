@@ -72,15 +72,27 @@ soup.p
 
 2. **Acesso ao nome e atributos de um elemento**
 
-Acessa à string do elemento. Ainda não vi muita utilidade nisso.
+Acessa o nome da tag
 ```
 soup.title.name
 # u'title'
-
-# outra forma de sintaxe é colocando o "id" dentro do elemento. no caso o elemento p tem um id chamado class, retornando o nome dele
-soup.p['class']
+```
+As tags possuem muitas vezes vários atributos como id, class, div, etc. Pode-se acessar ao valor do atributo como um dicionário:
+```
+soup.p['class'] # ou soup.p.attrs. nesse caso irão mostrar todos os atributos como um dicionário.
 # u'title'
 ```
+Você pode adicionar, remover ou modificar os atributos de uma tag.
+
+O HTML 5 define alguns atributos que podem ter múltiplos valores. como abaixo:
+```
+css_soup = BeautifulSoup('<p class="body strikeout"></p>')
+css_soup.p['class']
+# ["body", "strikeout"]
+```
+Caso não deseje que os atributos sejam fornecidos como lista, coloque o argumento ```multi_valued_attributes=None``` no construtor BeautifulSoup()
+
+**OBS1:** Em arquivos XML nenhum elemento terá vários valores de atributos.
 
 3. **soup.elemento.string**
 
