@@ -42,6 +42,8 @@ soup = BeautifulSoup(acesso.text, 'html.parser')
 ```
 O .text serve para transformar o arquivo para texto para que o parser funcione.
 
+**OBS:** Caso esteja com problemas de caracteres errados, pode ser que a biblioteca do BS tenha identificado errado o encode do texto. Para isso, use o argumento ```from_encoding``` e coloque o encode se souber, ou teste os encodes (UTF-8 é a mais comum).
+
 ## 4 - COMANDOS BÁSICOS
 Utilizando o html abaixo como exemplo:
 ```
@@ -119,6 +121,12 @@ for string in soup.stripped_strings:
 ```
 
 OBS.: Beautiful Soup assumirá que a string está codificada como UTF-8. Você pode evitar isso passando ao invés disso uma string Unicode.
+
+Há ainda o método ```.get_text()```. O primeiro argumento define como você quer unir as strings, a segunda define se quer retirar os espaços entre elas.
+```
+# soup.get_text("|", strip=True)
+u'I linked to|example.com'
+```
 
 4. **Procura de informações na página**
 
@@ -284,12 +292,40 @@ soup.find_all("a", class_="sister")
 #  <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>]
 ```
 
-Se voce quiser buscar por tags que correspondem a duas ou mais classes CSS, você deverá utilizar um seletor CSS:
+4. **Seletores CSS**
+
+A partir da versão 4.7.0, o Beautiful Soup suporta a maior parte dos seletores CSS4 através do projeto _SoupSieve_. 
+Se você instalou o Beautiful Soup através do pip,o SoupSieve foi instalado ao mesmo tempo.
+
+BeautifulSoup possui um método ```.select()``` o qual utiliza o SoupSieve para executar um seletor CSS selector sobre um documento a ser analisado e retorna todos os elementos correspondentes.
+
+```
+soup.select("title")
+# [<title>The Dormouse's story</title>]
+
+soup.select("p:nth-of-type(3)")
+# [<p class="story">...</p>]
+
+soup.select("p > a")
+# [<a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>,
+#  <a class="sister" href="http://example.com/lacie"  id="link2">Lacie</a>,
+#  <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>]
+```
+
+Se quiser buscar por tags que correspondem a duas ou mais classes CSS, você deverá utilizar um seletor CSS:
 ```
 css_soup.select("p.strikeout.body")
 # [<p class="body strikeout"></p>]
 ```
 
+Há outros exemplos bem mais avançados nesse [link](https://www.crummy.com/software/BeautifulSoup/bs4/doc.ptbr/#seletores-css)
 
+Há outro método chamado ```select_one()```, o qual encontra somente a primeira tag que combina com um seletor:
+```
+soup.select_one(".sister")
+# <a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>
+```
+5. Modificando a árvore
 
+Não faz sentido para mim, mas o BS4 consegue modificar a estrutura, apagar elementos, etc. Caso tenha interesse, cheque esse [link](https://www.crummy.com/software/BeautifulSoup/bs4/doc.ptbr/#modificando-a-arvore)
 
