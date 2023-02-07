@@ -118,29 +118,47 @@ for string in soup.stripped_strings:
     print(repr(string))
 ```
 
-4. **soup.elemento.parent.name**
+OBS.: Beautiful Soup assumirá que a string está codificada como UTF-8. Você pode evitar isso passando ao invés disso uma string Unicode.
 
-Acessa o nome do elemento acima do elemento em questão. Sem o name acessaria todo o elemento que está acima.
-```
-soup.title.parent.name
-# u'head'
-```
+4. **Procura de informações na página**
 
-5. **find_all()**
-
-Nos casos acima, só se retorna o primeiro valor do elemento. 
-No HTML muitas vezes há vários elementos do mesmo tipo, faz-se necessário utilizar o método find_all() se quiser navegar entre eles.
-```
-soup.find_all('a')
-```
-
-6. **soup_find(tag)**
+- find()
 
 Pode-se usar o método find para procurar pelo tag_name, id, class, div. Há várias possibilidades de formas de procura. 
+Explicação da doc:
+> Você pode usá-los para realizar filtros baseados nos nomes das tags, nos seus atributos, no texto de uma strings ou em alguma combinação entre eles.
 
 ```
 soup.find(id="link3") # poderia utilizar o class='sister' por exemplo
 # <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>
+```
+
+Nos casos acima, só se retorna o primeiro valor do elemento.
+
+- find_all()
+
+O método find_all() busca entre os descendentes de uma tag e retorna todos os descendentes que correspondem a seus filtros
+
+Definição: find_all(name, attrs, recursive, string, limit, kwargs)
+
+```
+soup.find_all('a')
+
+soup.find_all("p", "title")
+# [<p class="title"><b>The Dormouse's story</b></p>]
+
+soup.find_all(id="link2")
+# [<a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>]
+
+soup.find_all(string=["Tillie", "Elsie", "Lacie"])
+# [u'Elsie', u'Lacie', u'Tillie']
+
+```
+
+O find_all aceita o uso de vários atributos de uma vez
+```
+soup.find_all(href=re.compile("elsie"), id='link1')
+# [<a class="sister" href="http://example.com/elsie" id="link1">three</a>]
 ```
 
 ## 5 - COMANDOS MAIS AVANÇADOS
@@ -186,14 +204,92 @@ for child in head_tag.descendants:
     print(child)
 # <title>The Dormouse's story</title>
 # The Dormouse's story
-
-
 ```
 
 2.2 Acessando as tags acima
 A ideia é igual. Porém agora você está subindo as tags.
+
 Você pode acessar o elemento mãe com o atributo ```.parent```.
+Signature: find_parent(name, attrs, string, **kwargs)
+
 Para acessar todos elementos acima na árvore use ```.parents```.
+Signature: find_parents(name, attrs, string, limit, **kwargs)
+
 
 2.3 Acessando elementos de uma mesma tag (irmãos)
-Você pode usar ```.next_sibling``` e ```.previous_sibling``` para navegar entre os elementos da página que estão no mesmo nível da árvore:
+Você pode usar ```.next_sibling``` e ```.previous_sibling``` para navegar entre os elementos da página que estão no mesmo nível da árvore. 
+
+É possível empilhar até chegar no irmão desejado:
+```
+soup.b.next_sibling.next_sibling
+```
+
+Também é possível iterar utilizando for:
+```
+for sibling in soup.a.next_siblings:
+    print(repr(sibling))
+```
+
+3. **Procura de informações na página (avançado)**
+- RegEx
+
+Se você passar um objeto regex, o Beautiful Soup irá realizar um filtro com ela utilizando seu método search().
+```
+import re
+for tag in soup.find_all(re.compile("^b")):
+    print(tag.name)
+# body
+# b
+```
+
+- Lista
+
+Se você passar uma lista, o Beautiful Soup irá buscar uma correspondência com qualquer item dessuma lista.
+```
+soup.find_all(["a", "b"])
+# [<b>The Dormouse's story</b>,
+#  <a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>,
+#  <a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>,
+#  <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>]
+```
+
+- O valor True
+
+Caso coloque True em algum filtro de busca, ele irá buscar todos os casos desejados.
+```
+soup.find_all(id=True)
+# [<a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>,
+#  <a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>,
+#  <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>]
+```
+
+**OBS1:** caso um elemento tenha atributo chamado name ou qualquer outro utilizado pelo BS pode dar um erro, para solucionar use o exemplo abaixo. 
+```
+name_soup = BeautifulSoup('<input name="email"/>')
+name_soup.find_all(name="email")
+# []
+name_soup.find_all(attrs={"name": "email"})
+# [<input name="email"/>]
+```
+No caso acima 'name' seria utilizado para encontrar a palavra 'input' porém usando o argumento attrs e um dicionário, e possível contornar esse problema.
+
+- Classe CSS
+
+É muito útil buscar por uma tag que tem uma certa classe CSS, mas o nome do atributo CSS, “class”, é uma palavra reservada no Python. 
+Utilizar class como um argumento palavra-chave lhe trará um erro de sintaxe. Você pode buscar por uma classe CSS utilizando o argumento palavra-chave class_.
+```
+soup.find_all("a", class_="sister")
+# [<a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>,
+#  <a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>,
+#  <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>]
+```
+
+Se voce quiser buscar por tags que correspondem a duas ou mais classes CSS, você deverá utilizar um seletor CSS:
+```
+css_soup.select("p.strikeout.body")
+# [<p class="body strikeout"></p>]
+```
+
+
+
+
