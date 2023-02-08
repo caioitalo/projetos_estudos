@@ -330,5 +330,36 @@ soup.select_one(".sister")
 Não faz sentido para mim, mas o BS4 consegue modificar a estrutura, apagar elementos, etc. Caso tenha interesse, cheque esse [link](https://www.crummy.com/software/BeautifulSoup/bs4/doc.ptbr/#modificando-a-arvore)
 
 ## 6 Analisando apenas parte do documento
+Suponhamos que você queira apenas as tags 'a' do documento. 
+É um desperdício de tempo e memória analisar repetitivamente todo o documento para apenas buscar tais tags.
+Seria muito mais rápido ignorar tudo o que não for 'a' em primeiro lugar. A classe ```SoupStrainer``` permite que você escolha qual partes do documento serão analisadas.
+Você deverá penas criar uma instância de ```SoupStrainer``` e passá-la ao construtor BeautifulSoup no argumento ```parse_only```.
 
-Suponhamos que você queira que o Beautiful Soup olhe apenas para as tags <a> de um documento. É um desperdício de tempo e memória analisar todo o documento e, posteriormente, analisar novamente apenas para buscar as tags <a>. Seria muito mais rápido ignorar tudo o que não for <a> em primeiro lugar. A classe SoupStrainer permite que você escolha qual partes do documento serão analisadas. Você deverá penas criar uma instância de SoupStrainer e passá-la ao construtor BeautifulSoup no argumento parse_only.
+OBS: esta característica não funcionará se você estiver utilizando o html5lib.
+
+```
+from bs4 import SoupStrainer
+so_tags_a = SoupStrainer("a")
+so_tags_com_id = SoupStrainer(id="link2")
+BeautifulSoup(html_doc, parse_only=so_tags_a)
+```
+
+## 7 Solucionando problemas
+Utilize a função ```.diagnose()``` para saber o que o Beautiful Soup está fazendo com o documento.
+```
+from bs4.diagnose import diagnose
+with open("bad.html") as fp:
+    data = fp.read()
+diagnose(data)
+
+# Diagnostic running on Beautiful Soup 4.2.0
+# Python version 2.7.3 (default, Aug  1 2012, 05:16:07)
+# I noticed that html5lib is not installed. Installing it may help.
+# Found lxml version 2.3.2.0
+#
+# Trying to parse your data with html.parser
+# Here's what html.parser did with the document:
+```
+
+## 8 Conclusão
+Creio que esse seja o compêndio principal para se entender BS4. O que não estiver aqui pode ser checado diretamente na documentação. 
