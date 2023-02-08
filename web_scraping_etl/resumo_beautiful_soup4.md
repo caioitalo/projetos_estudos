@@ -329,3 +329,6 @@ soup.select_one(".sister")
 
 Não faz sentido para mim, mas o BS4 consegue modificar a estrutura, apagar elementos, etc. Caso tenha interesse, cheque esse [link](https://www.crummy.com/software/BeautifulSoup/bs4/doc.ptbr/#modificando-a-arvore)
 
+## 6 Analisando apenas parte do documento
+
+Suponhamos que você queira que o Beautiful Soup olhe apenas para as tags <a> de um documento. É um desperdício de tempo e memória analisar todo o documento e, posteriormente, analisar novamente apenas para buscar as tags <a>. Seria muito mais rápido ignorar tudo o que não for <a> em primeiro lugar. A classe SoupStrainer permite que você escolha qual partes do documento serão analisadas. Você deverá penas criar uma instância de SoupStrainer e passá-la ao construtor BeautifulSoup no argumento parse_only.
