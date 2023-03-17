@@ -2,6 +2,11 @@
 
 > Aqui se encontram dashboards construídos a partir dos laboratórios hands-on do curso 'Microsoft Power BI Para Business Intelligence e Data Science' da DSA.
 
+No curso foi abordado alguns temas relevantes como:
+a) Introdução à ferramenta, Análise de Dados, BI.
+b) Modelagem de dados, relacionamentos e introdução à linguagem DAX;
+c) Grande quantidade de laboratórios hands-on com diferentes cenários e de ramos diferentes como marketing, RH, logística.
+
 ## 1 - Dashboard 1 - Análise Global de Vendas
 Acesse ao primeiro dash pelo [link](https://app.powerbi.com/groups/me/reports/20fe30d6-f64b-42ff-9775-709895ec6e38?ctid=88b64181-d94d-4e8d-a63e-22d87ee941dc&pbi_source=linkShare)
 
