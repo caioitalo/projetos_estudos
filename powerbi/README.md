@@ -46,6 +46,7 @@ A construção desse relatório levou a alguns insights:
 ## Capítulo 4 - Análise de dados Comerciais
 Além de ser apresentado a alguns KPIs importantes da área comercial, foram vistos alguns novos gráficos como a Narrativa Inteligente, Principais influenciadores, 
 o Gráfico de Faixas. Foram vistos alguns mais detalhes no Power Query como substituição de valores, tratamento básico de outliers.
+Além de aprender como gerar um índice para as páginas do relatório.
 
 A construção desse relatório levou a alguns insights:
 * Algumas lojas são especializadas em algumas Categorias de produtos vendendo bastante em eletrodomésticos, porém sendo bem tímida em portáteis, por exemplo.
