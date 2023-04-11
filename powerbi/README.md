@@ -2,10 +2,12 @@
 
 > Aqui se encontram dashboards construídos a partir dos laboratórios hands-on do curso 'Microsoft Power BI Para Business Intelligence e Data Science' da DSA.
 
+**OBS.**: Como o foco inicialmente foi em como utilizar os recursos, a aparência dos primeiros Dashboards foi bem simplificada.
+
 No curso foi abordado alguns temas relevantes como:
-a) Introdução à ferramenta, Análise de Dados, BI.
-b) Modelagem de dados, relacionamentos e introdução à linguagem DAX;
-c) Grande quantidade de laboratórios hands-on com diferentes cenários e de ramos diferentes como marketing, RH, logística.
+1. Introdução à ferramenta, Análise de Dados, BI.
+2. Modelagem de dados, relacionamentos e introdução à linguagem DAX;
+3. Grande quantidade de laboratórios hands-on com diferentes cenários e de ramos diferentes como marketing, RH, logística.
 
 ## 1 - Capítulo 1 - Análise Global de Vendas
 Acesse ao primeiro dash pelo [link](https://app.powerbi.com/groups/me/reports/20fe30d6-f64b-42ff-9775-709895ec6e38?ctid=88b64181-d94d-4e8d-a63e-22d87ee941dc&pbi_source=linkShare)
@@ -40,4 +42,16 @@ A construção desse relatório levou a alguns insights:
 * As pessoas que mais compram são solteiras, com curso superior e com nenhum filho.
 * Somente 16% das campanhas de marketing resultaram em vendas. Necessário para ver o que melhorar nas próximas.
 * EUA, Espanha e Chile foram os países com clientes que mais compraram.
+
+## Capítulo 4 - Análise de dados Comerciais
+Além de ser apresentado a alguns KPIs importantes da área comercial, foram vistos alguns novos gráficos como a Narrativa Inteligente, Principais influenciadores, 
+o Gráfico de Faixas. Foram vistos alguns mais detalhes no Power Query como substituição de valores, tratamento básico de outliers.
+
+A construção desse relatório levou a alguns insights:
+* Algumas lojas são especializadas em algumas Categorias de produtos vendendo bastante em eletrodomésticos, porém sendo bem tímida em portáteis, por exemplo.
+* O segmento doméstico domina em número de vendas e em valor, entretanto o segmento corporativo fez as vendas mais significativas.
+
+
+
+Acesse ao dash pelo [link](https://app.powerbi.com/links/Ku5LnKm1Yj?ctid=88b64181-d94d-4e8d-a63e-22d87ee941dc&pbi_source=linkShare&bookmarkGuid=72e1883d-3b8e-494a-afc0-806018d97591).
 
