@@ -13,11 +13,11 @@ No curso foi abordado alguns temas relevantes como:
 Acesse ao primeiro dash pelo [link](https://app.powerbi.com/groups/me/reports/20fe30d6-f64b-42ff-9775-709895ec6e38?ctid=88b64181-d94d-4e8d-a63e-22d87ee941dc&pbi_source=linkShare)
 
 Buscava-se responder às seguintes perguntas:
-* Pergunta 1 - Qual o valor total vendido?
-* Pergunta 2 - Quantas vendas foram realizadas por categoria de produto?
-* Pergunta 3 - Quantas vendas foram realizadas por país considerando a prioridade de entrega?
-* Pergunta 4 - Qual foi a média de desconto nas vendas por subcategoria de produto?
-* Pergunta 5 - Quais países tiveram maior média de valor de venda? Demonstre em um mapa.
+1. Qual o valor total vendido?
+2. Quantas vendas foram realizadas por categoria de produto?
+3. Quantas vendas foram realizadas por país considerando a prioridade de entrega?
+4. Qual foi a média de desconto nas vendas por subcategoria de produto?
+5. Quais países tiveram maior média de valor de venda? Demonstre em um mapa.
 
 E nosso Dashboard deve dar ao usuário a possibilidade de filtrar os dados por ano, por segmento e por país.
 
@@ -27,11 +27,11 @@ Ao decorrer desse capítulo além da produção de mais um dashboard, foram vist
 Acesse ao dash pelo [link](https://app.powerbi.com/links/RNWDv-4JjV?ctid=88b64181-d94d-4e8d-a63e-22d87ee941dc&pbi_source=linkShare)
 
 Buscava-se responder às seguintes perguntas:
-* 1-Qual foi o total de valor venda considerando cada modo de envio dos pedidos? Use um gráfico de cascata.
-* 2-Quais mercados tiveram o maior custo médio de envio dos produtos vendidos? Use um gráfico treemap.
-* 3-A empresa tem como objetivo (meta) manter uma média de 350 para o valor de venda todos os meses. Mostre um indicador (KPI–Key Performance Indicator) com o valor médio de venda. A empresa ficou abaixo ou acima da meta no mês de Abril/2014?
-* 4-Considere que o lucro é equivalente a:valor venda -custo envio. Qual categoria de produto apresentou maior lucro médio.
-* 5-Qual foi o comportamento da margem de lucro ao longo do tempo? Considere amargem de lucro como o lucro dividido pelo valor venda.
+1. Qual foi o total de valor venda considerando cada modo de envio dos pedidos? Use um gráfico de cascata.
+2. Quais mercados tiveram o maior custo médio de envio dos produtos vendidos? Use um gráfico treemap.
+3. A empresa tem como objetivo (meta) manter uma média de 350 para o valor de venda todos os meses. Mostre um indicador (KPI–Key Performance Indicator) com o valor médio de venda. A empresa ficou abaixo ou acima da meta no mês de Abril/2014?
+4. Considere que o lucro é equivalente a:valor venda -custo envio. Qual categoria de produto apresentou maior lucro médio.
+5. Qual foi o comportamento da margem de lucro ao longo do tempo? Considere amargem de lucro como o lucro dividido pelo valor venda.
 
 ## Capítulo 3 - Análise de Campanhas de Marketing
 Durante a construção desse Dashboard foi visto novos gráficos e seu funcionamento - como o gráfico de barras e linhas. A criação de várias visões de uma campanha de marketing e como acompanhar os mais importantes KPIs.
@@ -44,6 +44,9 @@ A construção desse relatório levou a alguns insights:
 * EUA, Espanha e Chile foram os países com clientes que mais compraram.
 
 ## Capítulo 4 - Análise de dados Comerciais
+
+Acesse ao dash pelo [link](https://app.powerbi.com/links/Ku5LnKm1Yj?ctid=88b64181-d94d-4e8d-a63e-22d87ee941dc&pbi_source=linkShare&bookmarkGuid=72e1883d-3b8e-494a-afc0-806018d97591).
+
 Além de ser apresentado a alguns KPIs importantes da área comercial, foram vistos alguns novos gráficos como a Narrativa Inteligente, Principais influenciadores, 
 o Gráfico de Faixas. Foram vistos alguns mais detalhes no Power Query como substituição de valores, tratamento básico de outliers.
 Além de aprender como gerar um índice para as páginas do relatório.
@@ -54,5 +57,21 @@ A construção desse relatório levou a alguns insights:
 
 
 
-Acesse ao dash pelo [link](https://app.powerbi.com/links/Ku5LnKm1Yj?ctid=88b64181-d94d-4e8d-a63e-22d87ee941dc&pbi_source=linkShare&bookmarkGuid=72e1883d-3b8e-494a-afc0-806018d97591).
+## Capítulo 5 - Análise de dados de RH
+
+Acesse ao dash pelo [link](https://app.powerbi.com/links/jbV9qulHvU?ctid=88b64181-d94d-4e8d-a63e-22d87ee941dc&pbi_source=linkShare).
+
+Apresentação de importantes KPIs de RH.
+Houve também a apresentação de mais expressões básicas em DAX: COUNT, COUNTDISTINCT, COUNTROWS, DIVIDE, AVERAGE, SUM, CALCULATE em uma tabela própria de medidas a fim de organizar e trazer rapidez nos cálculos do relatório.
+Criação de colunas condicionais.
+Foi dada uma pequena customização quanto a formatação de cores e formas do relatório.
+
+As perguntas que teriam de ser respondidas foram:
+1. Qual o total de funcionários atualmente na empresa?
+2. Qual otempo médio de experiência dos funcionários (em anos)?
+3. Qual o total e percentual de funcionários do gênero masculino e feminino?
+4. Qual a média salarial mensal?
+5. Qual o total de funcionários por função?
+6. Qual o percentual defuncionários disponíveis para fazer hora extra?
+7. Qual onível de envolvimento dos funcionários no trabalhoconsiderando 4 categorias: Ruim, Baixo, Médio e Alto?
 
