@@ -10,7 +10,7 @@ No curso foi abordado alguns temas relevantes como:
 3. Grande quantidade de laboratórios hands-on com diferentes cenários e de ramos diferentes como marketing, RH, logística.
 
 ## 1 - Capítulo 1 - Análise Global de Vendas
-Acesse ao primeiro dash pelo [link](https://app.powerbi.com/groups/me/reports/20fe30d6-f64b-42ff-9775-709895ec6e38?ctid=88b64181-d94d-4e8d-a63e-22d87ee941dc&pbi_source=linkShare)
+Acesse ao primeiro dash pelo [link](https://app.powerbi.com/view?r=eyJrIjoiM2E3ODAzODUtYzBmOS00ZDIyLWI2NTctMjZkMTRjZTM4ZDFlIiwidCI6Ijg4YjY0MTgxLWQ5NGQtNGU4ZC1hNjNlLTIyZDg3ZWU5NDFkYyJ9)
 
 Buscava-se responder às seguintes perguntas:
 1. Qual o valor total vendido?
@@ -24,7 +24,7 @@ E nosso Dashboard deve dar ao usuário a possibilidade de filtrar os dados por a
 ## Capítulo 2 - Relacionamentos, DAX e Modelagem
 Ao decorrer desse capítulo além da produção de mais um dashboard, foram vistos introdução à linguagem DAX e pontos sobre Relacionamentos e Modelagem de dados no PBI.
 
-Acesse ao dash pelo [link](https://app.powerbi.com/links/RNWDv-4JjV?ctid=88b64181-d94d-4e8d-a63e-22d87ee941dc&pbi_source=linkShare)
+Acesse ao dash pelo [link](https://app.powerbi.com/view?r=eyJrIjoiNTFlZGQ4ZTUtNGNkZi00MmUzLTllNjUtZTdmYTZiZjhiNGZiIiwidCI6Ijg4YjY0MTgxLWQ5NGQtNGU4ZC1hNjNlLTIyZDg3ZWU5NDFkYyJ9)
 
 Buscava-se responder às seguintes perguntas:
 1. Qual foi o total de valor venda considerando cada modo de envio dos pedidos? Use um gráfico de cascata.
@@ -36,7 +36,7 @@ Buscava-se responder às seguintes perguntas:
 ## Capítulo 3 - Análise de Campanhas de Marketing
 Durante a construção desse Dashboard foi visto novos gráficos e seu funcionamento - como o gráfico de barras e linhas. A criação de várias visões de uma campanha de marketing e como acompanhar os mais importantes KPIs.
 
-Acesse ao dash pelo [link](https://app.powerbi.com/links/bKIAMl36Gm?ctid=88b64181-d94d-4e8d-a63e-22d87ee941dc&pbi_source=linkShare&bookmarkGuid=a7ae0dfd-ce9a-4436-a20f-2006a9ba916f).
+Acesse ao dash pelo [link](https://app.powerbi.com/view?r=eyJrIjoiZmE0ZWQxNDgtMWNiOC00N2Q2LWIwZWYtOGVhNTAwNDNiNTM1IiwidCI6Ijg4YjY0MTgxLWQ5NGQtNGU4ZC1hNjNlLTIyZDg3ZWU5NDFkYyJ9).
 
 A construção desse relatório levou a alguns insights:
 * As pessoas que mais compram são solteiras, com curso superior e com nenhum filho.
@@ -45,7 +45,7 @@ A construção desse relatório levou a alguns insights:
 
 ## Capítulo 4 - Análise de dados Comerciais
 
-Acesse ao dash pelo [link](https://app.powerbi.com/links/Ku5LnKm1Yj?ctid=88b64181-d94d-4e8d-a63e-22d87ee941dc&pbi_source=linkShare&bookmarkGuid=72e1883d-3b8e-494a-afc0-806018d97591).
+Acesse ao dash pelo [link](https://app.powerbi.com/view?r=eyJrIjoiYTE4NGVjZTAtMDhlNi00OWY5LTg3MTMtMjE0OWUyZGU4M2QwIiwidCI6Ijg4YjY0MTgxLWQ5NGQtNGU4ZC1hNjNlLTIyZDg3ZWU5NDFkYyJ9).
 
 Além de ser apresentado a alguns KPIs importantes da área comercial, foram vistos alguns novos gráficos como a Narrativa Inteligente, Principais influenciadores, 
 o Gráfico de Faixas. Foram vistos alguns mais detalhes no Power Query como substituição de valores, tratamento básico de outliers.
@@ -55,11 +55,9 @@ A construção desse relatório levou a alguns insights:
 * Algumas lojas são especializadas em algumas Categorias de produtos vendendo bastante em eletrodomésticos, porém sendo bem tímida em portáteis, por exemplo.
 * O segmento doméstico domina em número de vendas e em valor, entretanto o segmento corporativo fez as vendas mais significativas.
 
-
-
 ## Capítulo 5 - Análise de dados de RH
 
-Acesse ao dash pelo [link](https://app.powerbi.com/links/jbV9qulHvU?ctid=88b64181-d94d-4e8d-a63e-22d87ee941dc&pbi_source=linkShare).
+Acesse ao dash pelo [link](https://app.powerbi.com/view?r=eyJrIjoiYzI5Y2RhY2ItZTQwZC00ODM4LTlmNTItOWIxNGY0OTMyN2M3IiwidCI6Ijg4YjY0MTgxLWQ5NGQtNGU4ZC1hNjNlLTIyZDg3ZWU5NDFkYyJ9).
 
 Apresentação de importantes KPIs de RH.
 Houve também a apresentação de mais expressões básicas em DAX: COUNT, COUNTDISTINCT, COUNTROWS, DIVIDE, AVERAGE, SUM, CALCULATE em uma tabela própria de medidas a fim de organizar e trazer rapidez nos cálculos do relatório.
